@@ -1,7 +1,7 @@
 {
   "name": "habitica-mcp-server",
-  "version": "0.0.5",
-  "description": "Model Context Protocol server for Habitica API integration. Enable AI assistants to manage your Habitica tasks, habits, pets, and rewards through natural language.",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for Habitica API integration with stdio and Streamable HTTP support.",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -9,8 +9,9 @@
   },
   "scripts": {
     "start": "node index.js",
+    "start:http": "node start-http.js",
     "dev": "node --watch index.js",
-    "test": "echo \"No tests specified\" && exit 0",
+    "test": "node --test",
     "publish-check": "node scripts/publish-check.js",
     "prepublishOnly": "npm run publish-check"
   },
@@ -18,40 +19,45 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@modelcontextprotocol/sdk": "^1.21.0",
     "axios": "^1.6.0",
-    "zod": "^3.22.0"
+    "supergateway": "3.4.3",
+    "zod": "^3.24.4"
   },
   "keywords": [
     "mcp",
-    "habitica", 
+    "habitica",
     "productivity",
     "habits",
     "ai",
     "task-management",
     "rpg",
     "model-context-protocol",
+    "chatgpt",
     "claude",
     "assistant",
     "automation",
-    "gamification"
+    "gamification",
+    "streamable-http"
   ],
   "author": {
     "name": "Breaker",
     "email": "breakerr@qq.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ibreaker/habitica-mcp-server#readme",
+  "homepage": "https://github.com/xsgteamx/habitica-mcp-server#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibreaker/habitica-mcp-server.git"
+    "url": "git+https://github.com/xsgteamx/habitica-mcp-server.git"
   },
   "bugs": {
-    "url": "https://github.com/ibreaker/habitica-mcp-server/issues"
+    "url": "https://github.com/xsgteamx/habitica-mcp-server/issues"
   },
   "files": [
     "index.js",
     "i18n.js",
+    "start-http.js",
+    "CHATGPT.md",
     "README.md",
     "README.zh-CN.md",
     "LICENSE",
@@ -60,4 +66,4 @@
   "publishConfig": {
     "access": "public"
   }
-} 
+}

@@ -1,0 +1,15 @@
+services:
+  habitica-mcp:
+    build: .
+    restart: unless-stopped
+    environment:
+      HABITICA_USER_ID: ${HABITICA_USER_ID:?Set HABITICA_USER_ID in .env}
+      HABITICA_API_TOKEN: ${HABITICA_API_TOKEN:?Set HABITICA_API_TOKEN in .env}
+      MCP_LANG: ${MCP_LANG:-zh-CN}
+      PORT: 8000
+      MCP_PATH: ${MCP_PATH:?Set a long random MCP_PATH in .env}
+      MCP_LOG_LEVEL: ${MCP_LOG_LEVEL:-info}
+      MCP_STATEFUL: ${MCP_STATEFUL:-false}
+      MCP_SESSION_TIMEOUT: ${MCP_SESSION_TIMEOUT:-600000}
+    ports:
+      - "127.0.0.1:${PORT:-8000}:8000"
